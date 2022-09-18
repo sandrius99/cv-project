@@ -45,7 +45,7 @@ class EducationForm extends React.Component {
                 <input type="text" placeholder="Study Title" onChange={this.handleStudyTitleChange}></input>
                 <input type="text" placeholder="Start Date" onChange={this.handleSchoolStartDateChange}></input>
                 <input type="text" placeholder="End Date" onChange={this.handleSchoolEndDateChange}></input>
-                <button onClick={this.handleSaveSchool}>Save</button>
+                <button onClick={this.handleSaveSchool} className="addBtn">Add</button>
                 
             </div>
         )

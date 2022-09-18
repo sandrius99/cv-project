@@ -5,6 +5,7 @@ import GeneralInformationForm from "./components/GeneralInformationForm"
 import FormCategory from './components/FormCategory';
 import EducationForm from './components/EducationForm';
 import PracticalExpierenceForm from './components/PracticalExpierenceForm';
+import CvDisplay from './components/CvDisplay';
 
 
 class App extends React.Component {
@@ -58,8 +59,6 @@ class App extends React.Component {
     }
 
     setFirstName(firstName) {
-      
-     
       this.setState({
         generalInformation: {
           ...this.state.generalInformation,
@@ -185,6 +184,7 @@ class App extends React.Component {
     }
 
     setMainTasks(mainTasks) {
+      console.log(this.state.practicalExpierence.mainTasks)
       this.setState({
         practicalExpierence: {
           ...this.state.practicalExpierence,
@@ -211,14 +211,20 @@ class App extends React.Component {
     
   render() {
    
-    return <div>
+    return <div className="content">
+    <div className="header"><span id='headerText'>CV CREATOR</span></div>
+    <div className="mainContent">
+      <div className="form">
       <GeneralInformationForm  setFirstName={this.setFirstName} setLastName={this.setLastName} setEmail={this.setEmail} setPhoneNumber={this.setPhoneNumber} firstName={this.state.generalInformation.firstName}/> 
        <EducationForm setSchoolName={this.setSchoolName} setStudyTitle={this.setStudyTitle} setSchoolStartDate={this.setSchoolStartDate} setSchoolEndDate={this.setSchoolEndDate} saveSchool={this.saveSchool}/>
       <PracticalExpierenceForm  setCompanyName={this.setCompanyName} setWorkPosition={this.setWorkPosition} setWorkStartDate={this.setWorkStartDate} setWorkEndDate={this.setWorkEndDate} setMainTasks={this.setMainTasks} 
         saveWorkExpierence={this.saveWorkExpierence}/>
-      
-      
-      
+      </div>
+      <div className="output">
+        <CvDisplay  generalInformation={this.state.generalInformation} education={this.state.education} practicalExpierence={this.state.practicalExpierence} educations={this.state.educations}
+         practicalExpierences={this.state.practicalExpierences}/>
+      </div>    
+    </div>
     </div>
   }
 }

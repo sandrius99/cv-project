@@ -49,9 +49,9 @@ class PracticalExpierenceForm extends React.Component {
                 <input type="text" placeholder="Position" onChange={this.handleWorkPositionChange}></input>
                 <input type="text" placeholder="Start Date" onChange={this.handleWorkStartDateChange}></input>
                 <input type="tel" placeholder="End Date" onChange={this.handleWorkEndDateChange}></input>
-                <input type="text" placeholder="Main Tasks" onChange={this.handleMainTasksChange}></input>
+                <textarea type="text" placeholder="Main Tasks" onChange={this.handleMainTasksChange}></textarea>
 
-                <button onClick={this.handleSaveWorkExpierence}>Save</button>
+                <button onClick={this.handleSaveWorkExpierence} className="addBtn">Add</button>
                 
             </div>
         )
