@@ -2,7 +2,6 @@
 import './App.css';
 import React from 'react';
 import GeneralInformationForm from "./components/GeneralInformationForm"
-import FormCategory from './components/FormCategory';
 import EducationForm from './components/EducationForm';
 import PracticalExperienceForm from './components/PracticalExperienceForm';
 import CvDisplay from './components/CvDisplay';
