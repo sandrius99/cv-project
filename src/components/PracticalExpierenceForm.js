@@ -36,10 +36,11 @@ class PracticalExpierenceForm extends React.Component {
     handleSaveWorkExpierence(e) {
         this.props.saveWorkExpierence();
         
-       const inputsToNulify = Array.from(e.target.parentElement.children).filter((element) => element.nodeName === 'INPUT');
+       const inputsToNulify = Array.from(e.target.parentElement.children).filter((element) => element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA');
        inputsToNulify.forEach(input => input.value = '');
 
     }
+
 
     render() {
         return (
@@ -52,7 +53,7 @@ class PracticalExpierenceForm extends React.Component {
                 <textarea type="text" placeholder="Main Tasks" onChange={this.handleMainTasksChange}></textarea>
 
                 <button onClick={this.handleSaveWorkExpierence} className="addBtn">Add</button>
-                
+               
             </div>
         )
     }

@@ -28,7 +28,7 @@ class GeneralInformationForm extends React.Component {
     }
 
     handlePhoneNumberChange(e) {
-        this.props.setPhone(e.target.value)
+        this.props.setPhoneNumber(e.target.value)
     }
 
     render() {

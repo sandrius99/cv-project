@@ -184,7 +184,6 @@ class App extends React.Component {
     }
 
     setMainTasks(mainTasks) {
-      console.log(this.state.practicalExpierence.mainTasks)
       this.setState({
         practicalExpierence: {
           ...this.state.practicalExpierence,
@@ -194,7 +193,6 @@ class App extends React.Component {
     }
 
     saveWorkExpierence() {
-      console.log(this.state.practicalExpierences)
       this.setState({
         practicalExpierences: [...this.state.practicalExpierences, this.state.practicalExpierence],
         practicalExpierence: {
@@ -219,11 +217,14 @@ class App extends React.Component {
        <EducationForm setSchoolName={this.setSchoolName} setStudyTitle={this.setStudyTitle} setSchoolStartDate={this.setSchoolStartDate} setSchoolEndDate={this.setSchoolEndDate} saveSchool={this.saveSchool}/>
       <PracticalExpierenceForm  setCompanyName={this.setCompanyName} setWorkPosition={this.setWorkPosition} setWorkStartDate={this.setWorkStartDate} setWorkEndDate={this.setWorkEndDate} setMainTasks={this.setMainTasks} 
         saveWorkExpierence={this.saveWorkExpierence}/>
+        
       </div>
       <div className="output">
         <CvDisplay  generalInformation={this.state.generalInformation} education={this.state.education} practicalExpierence={this.state.practicalExpierence} educations={this.state.educations}
          practicalExpierences={this.state.practicalExpierences}/>
-      </div>    
+        
+      </div>  
+      
     </div>
     </div>
   }
