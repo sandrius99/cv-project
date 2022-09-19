@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/sandrius99/cv-project.git/react-gh-pages/static/css/main.bfe61abb.css",
+    "main.js": "/sandrius99/cv-project.git/react-gh-pages/static/js/main.fec5b699.js",
+    "static/media/mail.png": "/sandrius99/cv-project.git/react-gh-pages/static/media/mail.2c378c9ee25927123f7d.png",
+    "index.html": "/sandrius99/cv-project.git/react-gh-pages/index.html",
+    "main.bfe61abb.css.map": "/sandrius99/cv-project.git/react-gh-pages/static/css/main.bfe61abb.css.map",
+    "main.fec5b699.js.map": "/sandrius99/cv-project.git/react-gh-pages/static/js/main.fec5b699.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bfe61abb.css",
+    "static/js/main.fec5b699.js"
+  ]
+}
