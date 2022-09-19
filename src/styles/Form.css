@@ -11,10 +11,16 @@ input {
     border-radius: 5px;
 }
 
+img {
+    width: 12px;
+    height: 12px;
+
+}
+
 textarea {
     max-width: 100%;
     min-width: 100%;
-    
+    border: none;
     white-space: pre-line;
 }
 

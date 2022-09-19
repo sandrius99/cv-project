@@ -4,7 +4,7 @@ import React from 'react';
 import GeneralInformationForm from "./components/GeneralInformationForm"
 import FormCategory from './components/FormCategory';
 import EducationForm from './components/EducationForm';
-import PracticalExpierenceForm from './components/PracticalExpierenceForm';
+import PracticalExperienceForm from './components/PracticalExperienceForm';
 import CvDisplay from './components/CvDisplay';
 
 
@@ -26,8 +26,8 @@ class App extends React.Component {
           endDate: '',
 
         },
-        practicalExpierences: [],
-        practicalExpierence: {
+        practicalExperiences: [],
+        practicalExperience: {
           companyName: '',
           position: '',
           startDate: '',
@@ -47,13 +47,17 @@ class App extends React.Component {
       this.setSchoolStartDate = this.setSchoolStartDate.bind(this);
       this.setSchoolEndDate = this.setSchoolEndDate.bind(this);
       this.saveSchool = this.saveSchool.bind(this);
+      this.deleteEducation = this.deleteEducation.bind(this);
       
       this.setCompanyName = this.setCompanyName.bind(this);
       this.setWorkPosition = this.setWorkPosition.bind(this);
       this.setWorkStartDate = this.setWorkStartDate.bind(this);
       this.setWorkEndDate = this.setWorkEndDate.bind(this);
       this.setMainTasks = this.setMainTasks.bind(this);
-      this.saveWorkExpierence = this.saveWorkExpierence.bind(this);
+      this.saveWorkExperience = this.saveWorkExperience.bind(this);
+      this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
+
+     
 
 
     }
@@ -95,44 +99,68 @@ class App extends React.Component {
     }
 
     // School info
-    setSchoolName(school) {
+    setSchoolName(school, id='none') {
+      if(id === 'none'){
       this.setState({
         education: {
           ...this.state.education,
           school: school
         }
       });
+    } else {
+      this.setState({
+        educations: this.editArray(this.state.educations, 'school', id, school)
+      });
+    }
     }
 
-    setStudyTitle(studyTitle) {
+    setStudyTitle(studyTitle, id='none') {
+      if(id === 'none'){
       this.setState({
         education: {
           ...this.state.education,
           studyTitle: studyTitle
         }
       });
+    } else {
+      this.setState({
+        educations: this.editArray(this.state.educations, 'studyTitle', id, studyTitle)
+      });
+    }
     }
     
-    setSchoolStartDate(startDate) {
+    setSchoolStartDate(startDate, id='none') {
+      if(id === 'none'){
       this.setState({
         education: {
           ...this.state.education,
           startDate: startDate
         }
       });
+    } else {
+      this.setState({
+        educations: this.editArray(this.state.educations, 'startDate', id, startDate)
+      });
+    }
     }
 
     
-    setSchoolEndDate(endDate) {
+    setSchoolEndDate(endDate, id='none') {
+      if(id === 'none'){
       this.setState({
         education: {
           ...this.state.education,
           endDate: endDate
         }
       });
+    } else {
+      this.setState({
+        educations: this.editArray(this.state.educations, 'endDate', id, endDate)
+      });
+    }
     }
 
-    saveSchool() {console.log(this.state.education)
+    saveSchool() {
       this.setState({
         educations: [...this.state.educations, this.state.education],
         education: {
@@ -145,57 +173,107 @@ class App extends React.Component {
 
     }
 
-// Expierence info
-    setCompanyName(companyName) {
+    deleteEducation(id) {
       this.setState({
-        practicalExpierence: {
-          ...this.state.practicalExpierence,
+        educations: this.state.educations.filter((education, index) => index != id)
+      });
+    }
+
+// Experience info
+    setCompanyName(companyName, id='none') {
+      if(id === 'none'){
+      this.setState({
+        practicalExperience: {
+          ...this.state.practicalExperience,
           companyName: companyName
         }
       });
+    } else {
+      this.setState({
+        practicalExperiences: this.editArray(this.state.practicalExperiences, 'companyName', id, companyName)
+      });
+    }
     }
 
-    setWorkPosition(position) {
-      this.setState({
-        practicalExpierence: {
-          ...this.state.practicalExpierence,
+    setWorkPosition(position, id='none') {
+      if(id === 'none'){
+        this.setState({
+        practicalExperience: {
+          ...this.state.practicalExperience,
           position: position
         }
       });
+    } else {
+      this.setState({
+        practicalExperiences: this.editArray(this.state.practicalExperiences, 'position', id, position)
+      });
+    }
     }
     
-    setWorkStartDate(startDate) {
-      this.setState({
-        practicalExpierence: {
-          ...this.state.practicalExpierence,
+    setWorkStartDate(startDate, id='none') {
+      if(id === 'none'){
+         this.setState({
+        practicalExperience: {
+          ...this.state.practicalExperience,
           startDate: startDate
         }
       });
+    } else {
+      this.setState({
+        practicalExperiences: this.editArray(this.state.practicalExperiences, 'startDate', id, startDate)
+      });
+    }
     }
 
     
-    setWorkEndDate(endDate) {
-      this.setState({
-        practicalExpierence: {
-          ...this.state.practicalExpierence,
+    setWorkEndDate(endDate, id='none') {
+      if(id === 'none'){
+        this.setState({
+        practicalExperience: {
+          ...this.state.practicalExperience,
           endDate: endDate
         }
       });
+    } else {
+      this.setState({
+        practicalExperiences: this.editArray(this.state.practicalExperiences, 'endDate', id, endDate)
+      });
+    }
     }
 
-    setMainTasks(mainTasks) {
+    setMainTasks(mainTasks, id = 'none') {
+      if(id === 'none'){
       this.setState({
-        practicalExpierence: {
-          ...this.state.practicalExpierence,
+        practicalExperience: {
+          ...this.state.practicalExperience,
           mainTasks: mainTasks
         }
       });
+    } else {
+      this.setState({
+        practicalExperiences: this.editArray(this.state.practicalExperiences, 'mainTasks', id, mainTasks)
+      });
     }
 
-    saveWorkExpierence() {
+
+
+    }
+
+    editArray(arrayName, arrayProperty, id, value){
+      return arrayName.map((element, index) => {
+
+        if(index == id){
+          element[arrayProperty] = value;
+          return element;
+        }
+        return element;
+      })
+    }
+
+    saveWorkExperience() {
       this.setState({
-        practicalExpierences: [...this.state.practicalExpierences, this.state.practicalExpierence],
-        practicalExpierence: {
+        practicalExperiences: [...this.state.practicalExperiences, this.state.practicalExperience],
+        practicalExperience: {
           companyName: '',
           position: '',
           startDate: '',
@@ -206,6 +284,12 @@ class App extends React.Component {
 
     }
 
+    deleteWorkExperience(id) {
+      this.setState({
+        practicalExperiences: this.state.practicalExperiences.filter((experience, index) => index != id)
+      });
+    }
+
     
   render() {
    
@@ -214,14 +298,15 @@ class App extends React.Component {
     <div className="mainContent">
       <div className="form">
       <GeneralInformationForm  setFirstName={this.setFirstName} setLastName={this.setLastName} setEmail={this.setEmail} setPhoneNumber={this.setPhoneNumber} firstName={this.state.generalInformation.firstName}/> 
-       <EducationForm setSchoolName={this.setSchoolName} setStudyTitle={this.setStudyTitle} setSchoolStartDate={this.setSchoolStartDate} setSchoolEndDate={this.setSchoolEndDate} saveSchool={this.saveSchool}/>
-      <PracticalExpierenceForm  setCompanyName={this.setCompanyName} setWorkPosition={this.setWorkPosition} setWorkStartDate={this.setWorkStartDate} setWorkEndDate={this.setWorkEndDate} setMainTasks={this.setMainTasks} 
-        saveWorkExpierence={this.saveWorkExpierence}/>
+       <EducationForm setSchoolName={this.setSchoolName} setStudyTitle={this.setStudyTitle} setSchoolStartDate={this.setSchoolStartDate} setSchoolEndDate={this.setSchoolEndDate} saveSchool={this.saveSchool}
+        educations={this.state.educations} deleteEducation={this.deleteEducation}/>
+      <PracticalExperienceForm  setCompanyName={this.setCompanyName} setWorkPosition={this.setWorkPosition} setWorkStartDate={this.setWorkStartDate} setWorkEndDate={this.setWorkEndDate} setMainTasks={this.setMainTasks} 
+        saveWorkExperience={this.saveWorkExperience} practicalExperiences={this.state.practicalExperiences} deleteWorkExperience={this.deleteWorkExperience}/>
         
       </div>
       <div className="output">
-        <CvDisplay  generalInformation={this.state.generalInformation} education={this.state.education} practicalExpierence={this.state.practicalExpierence} educations={this.state.educations}
-         practicalExpierences={this.state.practicalExpierences}/>
+        <CvDisplay  generalInformation={this.state.generalInformation} education={this.state.education} practicalExperience={this.state.practicalExperience} educations={this.state.educations}
+         practicalExperiences={this.state.practicalExperiences}/>
         
       </div>  
       

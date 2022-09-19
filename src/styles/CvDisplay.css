@@ -71,3 +71,15 @@ span {
     font-weight: normal;
 }
 
+.detail {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.generalInfoSpan {
+    display: inline;
+    
+    
+}
+
